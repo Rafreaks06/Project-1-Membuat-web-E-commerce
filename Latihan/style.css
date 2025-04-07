@@ -1,0 +1,219 @@
+/*custom variables*/
+:root {
+    --primary:#ff0000;
+    --secondary:#B22222;
+    --gray-600:#4b5563;
+    --overlay:rgba(44,62,80,0.44);
+    --accent:#696969; 
+}
+/*reset and base style*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*buat set body nya*/
+body{
+    background-color: white;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top:4rem ;
+}
+/*styling header*/
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    z-index:100;
+    padding:0.5rem 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+/*header konoten css*/
+.header-content{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+/*logo styling*/
+.logo{
+    font-family:'pacifico', serif;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--primary);
+    text-decoration: none;
+}
+/*navigasi menu styling*/
+.nav-menu{
+    list-style: none;
+    display: flex;
+    gap:1rem;
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+/*navigasi link styling*/
+.nav-link{
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: all 0.3s ease;
+
+}
+/*navigasi link hover efek*/
+.nav-link:hover{
+    color: var(--primary);
+    background:rgba(0,0,0,0.5);
+    border-radius: 10px;
+}
+/*navigasi link underline effect*/
+.nav-link::after{
+    content:"";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+/*navigasi link underline hover effect*/
+.nav-link:hover::after{
+    width: 100%;
+}
+/*navigasi menu item styling*/
+.nav-menu li:not(:last-child){
+    position: relative;
+}
+/*navigasi pemisah menu item*/
+.nav-menu li:not(:last-child::after){
+    content: "";
+    position: absolute;
+    right: -1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0px;
+    height: 0px;
+    background:rgba(0,0,0,0.1);
+}
+/* icon container styling*/
+.icon-container{
+    display: flex;
+    align-items: center;
+    gap: 16px;  
+}
+/* button styling buat navigasi link*/
+button.nav-link{
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+/* icon styling khusus untuk navigasi parangkat mobile*/
+.icon-three{
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+/* navigasi perangkat mobile*/
+
+@media(max-width:760px){
+    .nav-menu{
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background:white ;
+        padding: 1rem;
+        box-shadow: 0.2px rgba(0,0,0,0.1);
+
+    }
+    .nav-menu:active{
+        display: flex;
+
+    }
+    .nav-menu li{
+        width: 100%;
+        text-align: center;
+    }
+    .nav-menu li:not(:last-child)::after{
+        display: none;
+
+    }
+    .icon-three{
+        display: block;
+    }
+    .icon-container{
+        display: none;
+    }
+
+}
+/* Banner/hero secrion*/
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+
+} 
+ 
+.hero::before { 
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('christmas-stars-background_1048-7269');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0,7);
+    z-index: -1;
+}
+.hero-container {
+    width: 100%;
+    max-width: 600px;
+    color: white;
+    background: var(--overlay);
+    padding: clamp(1.5rem, 5vw, 3rem);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(210,203,121,0.1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+.hero-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin-bottom: 1rem;
+}
+/*styling tombol*/
+.btn{
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-weight: 600;
+    border: 2px solid var(--accent);
+    box-shadow: 0 4px 15px rgba(78,205,196,0.2);
+}
+.btn-hover {
+    transform: translateY(-2px);
+    background: transparent;
+    color: var(--accent);
+    box-shadow: 0 6px 20px rgba(78,205,196,0.3);
+}
